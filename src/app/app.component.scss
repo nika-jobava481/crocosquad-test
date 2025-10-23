@@ -1,0 +1,45 @@
+.main-content {
+  display: flex;
+  margin-top: 80px; // Account for fixed header
+  min-height: calc(100vh - 80px);
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    margin-top: 60px; // Smaller mobile header
+    min-height: calc(100vh - 60px);
+  }
+}
+
+.content-area {
+  flex: 1;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 250px; // Default sidenav width
+  min-height: calc(100vh - 80px);
+
+  // When sidebar is collapsed
+  .sidebar-collapsed & {
+    margin-left: 70px; // Collapsed sidenav width
+    @media (max-width: 1024px) {
+      margin-left: 0;
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 1024px) {
+    margin-left: 0;
+    width: 80%;
+    min-height: calc(100vh - 60px);
+  }
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+}
+
+.page-content {
+  flex: 1;
+  padding: var(--spacing-lg);
+}

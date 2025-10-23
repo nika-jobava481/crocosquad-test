@@ -1,0 +1,40 @@
+<div class="leaderboard-container">
+    <div class="leaderboard-header">
+        <h2 class="section-title">Weekly Leaderboard</h2>
+
+        <div class="filter-buttons">
+            <button *ngFor="let week of weekTypes" class="filter-btn" [class.active]="activeFilter === week"
+                (click)="filterByWeek(week)">
+                {{ week }}
+            </button>
+            <button class="filter-btn" [class.active]="activeFilter === 'ALL'" (click)="filterByWeek('ALL')">
+                ALL
+            </button>
+        </div>
+    </div>
+
+    <div class="leaderboard-table">
+        <div class="table-header">
+            <div class="col-place">Place</div>
+            <div class="col-customer">Customer ID</div>
+            <div class="col-login">Login Name</div>
+            <div class="col-week">Week</div>
+        </div>
+
+        <div class="table-body">
+            <div *ngFor="let entry of filteredLeaderboard" class="table-row">
+                <div class="col-place">
+                    <span class="place-badge" [class.first-place]="entry.place === 1"
+                        [class.second-place]="entry.place === 2" [class.third-place]="entry.place === 3">
+                        {{ entry.place }}
+                    </span>
+                </div>
+                <div class="col-customer">{{ entry.customerId }}</div>
+                <div class="col-login">{{ entry.loginName }}</div>
+                <div class="col-week">
+                    <span class="week-badge">{{ entry.week }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

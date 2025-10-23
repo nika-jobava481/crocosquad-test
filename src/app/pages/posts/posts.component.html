@@ -1,0 +1,113 @@
+<div class="posts-container">
+    <div class="posts-header">
+        <h1 class="page-title">Posts</h1>
+        <p class="page-subtitle">view posts with user information</p>
+    </div>
+
+    @if (posts.length === 0) {
+        <app-loader />
+    } @else {
+        <!-- Pagination Info -->
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * itemsPerPage + 1 }} to {{ getMin(currentPage * itemsPerPage, totalItems) }} of {{ totalItems }} posts</span>
+        </div>
+        <div class="table-container">
+            <table class="posts-table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Post Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of paginatedPosts" class="post-row">
+                        <td class="post-username">{{ post.userUsername }}</td>
+                        <td class="post-title">{{ post.title }}</td>
+                        <td class="post-actions">
+                            <button class="details-btn" (click)="openPostModal(post)">
+                                <i class="icon-eye"></i>
+                                <span>Details</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mobile List Layout -->
+        <div class="mobile-posts-list">
+            <div *ngFor="let post of paginatedPosts" class="mobile-post-card">
+                <div class="post-info">
+                    <div class="post-username">{{ post.userUsername }}</div>
+                    <div class="post-title">{{ post.title }}</div>
+                </div>
+                
+                <div class="post-actions">
+                    <button class="details-btn-mobile" (click)="openPostModal(post)">
+                        <i class="icon-eye"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination Controls -->
+        @if (totalPages > 1) {
+            <div class="pagination-controls">
+                <button 
+                    class="pagination-btn" 
+                    [disabled]="currentPage === 1"
+                    (click)="previousPage()"
+                >
+                    <i class="icon-chevron-left"></i>
+                    Previous
+                </button>
+                
+                <div class="page-numbers">
+                    @for (page of getPageNumbers(); track page) {
+                        <button 
+                            class="page-number" 
+                            [class.active]="page === currentPage"
+                            (click)="goToPage(page)"
+                        >
+                            {{ page }}
+                        </button>
+                    }
+                </div>
+                
+                <button 
+                    class="pagination-btn" 
+                    [disabled]="currentPage === totalPages"
+                    (click)="nextPage()"
+                >
+                    Next
+                    <i class="icon-chevron-right"></i>
+                </button>
+            </div>
+        }
+    }
+</div>
+
+<!-- Post Modal -->
+@if (isModalOpen && selectedPost) {
+    <div class="modal-overlay" (click)="closePostModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Post Details</h3>
+                <button class="close-btn" (click)="closePostModal()">
+                    <i class="icon-cross"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Post Content -->
+                <div class="modal-post">
+                    <div class="post-content">
+                        <h3>{{ selectedPost.title }}</h3>
+                        <p>{{ selectedPost.body }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

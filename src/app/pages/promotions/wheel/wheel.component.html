@@ -1,0 +1,15 @@
+<div class="container">
+    <button class="spinBtn" (click)="spinWheel()">Spin</button>
+    <div class="wheel" [style.transform]="`rotate(${currentAngle}deg)`">
+        @for (number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; track number) {
+            <div class="number" [style.--i]="number" [style.--color]="number % 2 === 0 ? 'red' : 'blue'">
+                <span>{{ number }}</span>
+            </div>
+        }
+    </div>
+</div>
+
+<input type="number" [(ngModel)]="sector" (keydown)="onKeyDown($event)">
+@if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+}

@@ -1,0 +1,89 @@
+// Base SCSS file with global variables and styles
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&display=swap');
+
+// CSS Variables
+:root {
+    // Color Variables
+    --color-primary: #a181ff;
+    --color-secondary: #a1a1aa;
+    --color-background: #09090b;
+    --color-text: #ffffff;
+
+    // Font Size Variables
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+
+    // Spacing Variables
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    // Border Radius Variables
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+// Global Styles
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+// Link Styles
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: var(--color-secondary);
+    }
+}
+
+// Custom Scrollbar Styles
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(161, 129, 255, 0.1);
+    border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--border-radius-sm);
+    
+    &:hover {
+        background: rgba(161, 129, 255, 0.8);
+    }
+}
+
+// Firefox scrollbar styling
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) rgba(161, 129, 255, 0.1);
+}

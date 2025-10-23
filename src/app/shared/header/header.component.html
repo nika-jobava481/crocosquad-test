@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="sidebar-toggle" (click)="toggleSidebar()">
+        <i class="icon-menu"></i>
+      </button>
+      <a routerLink="/" class="site-title">CrocoSquad</a>
+    </div>
+    <div class="date-time">
+      <span>{{ currentDateTime | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+    </div>
+  </div>
+</header>

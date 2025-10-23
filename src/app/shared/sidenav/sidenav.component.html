@@ -1,0 +1,17 @@
+<nav class="sidenav" [class.collapsed]="isCollapsed" [class.mobile-open]="isMobileOpen" [class.mobile-closing]="isMobileClosing">
+    <div class="sidenav-content">
+        <button class="mobile-close" *ngIf="isMobileOpen || isMobileClosing" (click)="closeMobileMenu()">
+            <i class="icon-x"></i>
+        </button>
+        <ul class="nav-list">
+            <li class="nav-item" *ngFor="let item of menuItems">
+                <a [routerLink]="item.routerLink" routerLinkActive="active" class="nav-link" (click)="closeMobileMenu()">
+                    <span class="nav-label">
+                        <i [class]="item.icon"></i>
+                        <span class="nav-text" *ngIf="!isCollapsed">{{ item.label }}</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

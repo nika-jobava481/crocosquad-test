@@ -1,0 +1,106 @@
+<div class="users-container">
+    <div class="users-header">
+        <h1 class="page-title">Users</h1>
+        <p class="page-subtitle">view user information</p>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <i class="icon-search search-icon"></i>
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    placeholder="Search by name or email..."
+                    [(ngModel)]="searchTerm"
+                    (input)="onSearchChange()"
+                >
+                <button 
+                    *ngIf="searchTerm" 
+                    class="clear-search-btn" 
+                    (click)="clearSearch()"
+                >
+                    <i class="icon-cross"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    @if (users.length === 0 && !error) {
+        <app-loader />
+    } @else if (error) {
+        <div class="error-state">
+            <i class="icon-warning"></i>
+            <h3>Error Loading Users</h3>
+            <p>{{ error }}</p>
+            <button class="retry-btn" (click)="retry()">
+                <i class="icon-refresh"></i>
+                Try Again
+            </button>
+        </div>
+    } @else {
+        <!-- No Results Message -->
+        @if (filteredUsers.length === 0 && searchTerm) {
+            <div class="no-results">
+                <i class="icon-search"></i>
+                <h3>No users found</h3>
+                <p>Try adjusting your search terms</p>
+                <button class="clear-search-btn-large" (click)="clearSearch()">
+                    Clear Search
+                </button>
+            </div>
+        } @else {
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of filteredUsers" class="user-row">
+                            <td class="user-name">{{ user.name }}</td>
+                            <td class="user-username">{{ user.username }}</td>
+                            <td class="user-phone">{{ user.phone }}</td>
+                            <td class="user-email">{{ user.email }}</td>
+                            <td class="user-company">{{ user.company.name }}</td>
+                            <td>
+                                <a [routerLink]="['/user-posts']" [queryParams]="{userId: user.id}"><i class="icon-file-text action-button"></i></a>
+                                <a [routerLink]="['/user-todos']" [queryParams]="{userId: user.id}"><i class="icon-list1 action-button"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Mobile List Layout - Clean without avatars -->
+            <div class="mobile-users-list">
+                <div *ngFor="let user of filteredUsers" class="mobile-user-card">
+                    <div class="user-info">
+                        <div class="user-name-row">
+                            <span class="user-name">{{ user.name }}</span>
+                            <span class="user-username">{{ '@' + user.username }}</span>
+                        </div>
+                        <div class="user-details">
+                            <div class="user-phone">{{ user.phone }}</div>
+                            <div class="user-company">{{ user.company.name }}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <a [routerLink]="['/user-posts']" [queryParams]="{userId: user.id}">
+                            <i class="icon-file-text action-button"></i>
+                        </a>
+                        <a [routerLink]="['/user-todos']" [queryParams]="{userId: user.id}">
+                            <i class="icon-list1 action-button"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

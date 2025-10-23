@@ -1,0 +1,117 @@
+.header {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-secondary);
+  padding: var(--spacing-md) 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    padding: var(--spacing-sm) 0;
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    width: 95%;
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    gap: var(--spacing-sm);
+  }
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: rgba(161, 129, 255, 0.1);
+    color: var(--color-primary);
+  }
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    font-size: var(--font-size-md);
+    padding: var(--spacing-xs);
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.site-title {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary), 0 0 15px var(--color-primary);
+  }
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    font-size: var(--font-size-lg);
+
+    &:hover {
+      text-shadow: none; // Disable glow on mobile
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.date-time {
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-style: normal;
+
+  // Mobile responsive
+  @media (max-width: 1024px) {
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em;
+  }
+
+  // Very small screens
+  @media (max-width: 1024px) {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.01em;
+  }
+}
