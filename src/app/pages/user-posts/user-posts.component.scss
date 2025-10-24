@@ -7,16 +7,16 @@
   &::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: var(--color-background);
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: var(--color-secondary);
     border-radius: 3px;
   }
-  
+
   &::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
   }
@@ -59,7 +59,7 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(161, 129, 255, 0.1);
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(161, 129, 255, 0.2);
@@ -120,7 +120,7 @@
   padding: var(--spacing-xs);
   border-radius: 50%;
   transition: background-color 0.2s ease;
-  
+
   &:hover {
     background-color: rgba(161, 129, 255, 0.1);
   }
@@ -152,7 +152,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
-  
+
   i {
     color: var(--color-primary);
   }
@@ -160,7 +160,7 @@
 
 .comments-count {
   cursor: pointer;
-  
+
   &:hover {
     text-decoration: underline;
     color: var(--color-primary);
@@ -192,18 +192,18 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  
+
   &:hover {
     background-color: rgba(161, 129, 255, 0.1);
     color: var(--color-primary);
     transform: translateY(-1px);
   }
-  
+
   &:active {
     transform: translateY(0) scale(0.98);
     transition: all 0.1s ease;
   }
-  
+
   i {
     font-size: var(--font-size-md);
     transition: transform 0.2s ease;
@@ -217,7 +217,7 @@
 .like-btn.liked {
   color: var(--color-primary);
   background-color: rgba(161, 129, 255, 0.1);
-  
+
   i {
     color: var(--color-primary);
   }
@@ -236,27 +236,28 @@
   .user-posts-container {
     padding: var(--spacing-md);
   }
-  
+
   .page-title {
     font-size: var(--font-size-xl);
   }
-  
+
   .posts-grid {
     gap: var(--spacing-md);
     max-width: 100%;
   }
-  
+
   .post-card {
     padding: var(--spacing-md);
   }
-  
+
   .post-title {
     font-size: var(--font-size-md);
   }
-  
+
   .post-content p {
     font-size: var(--font-size-xs);
     -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 }
 
@@ -265,7 +266,7 @@
     gap: var(--spacing-sm);
     max-width: 100%;
   }
-  
+
   .post-card {
     padding: var(--spacing-sm);
   }
@@ -283,21 +284,21 @@
 .not-found-content {
   text-align: center;
   max-width: 400px;
-  
+
   i {
     font-size: 4rem;
     color: var(--color-secondary);
     margin-bottom: var(--spacing-lg);
     display: block;
   }
-  
+
   h2 {
     color: var(--color-text);
     font-size: var(--font-size-xl);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
   }
-  
+
   p {
     color: var(--color-secondary);
     font-size: var(--font-size-md);
@@ -317,12 +318,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin: 0 auto;
-  
+
   &:hover {
     background: var(--color-secondary);
     transform: translateY(-1px);
   }
-  
+
   &:active {
     transform: translateY(0);
   }
@@ -334,26 +335,26 @@
     min-height: 300px;
     padding: var(--spacing-lg);
   }
-  
+
   .not-found-content {
     max-width: 100%;
-    
+
     i {
       font-size: 3rem;
       margin-bottom: var(--spacing-md);
     }
-    
+
     h2 {
       font-size: var(--font-size-lg);
       margin-bottom: var(--spacing-sm);
     }
-    
+
     p {
       font-size: var(--font-size-sm);
       margin-bottom: var(--spacing-lg);
     }
   }
-  
+
   .go-back-btn {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: var(--font-size-xs);
@@ -396,7 +397,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   h3 {
     margin: 0;
     color: var(--color-primary);
@@ -415,7 +416,7 @@
   padding: var(--spacing-xs);
   border-radius: 50%;
   transition: all 0.2s ease;
-  
+
   &:hover {
     background: var(--color-secondary);
     color: var(--color-primary);
@@ -426,21 +427,21 @@
   flex: 1;
   overflow-y: auto;
   padding: 0;
-  
+
   // Custom scrollbar
   &::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: var(--color-background);
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: var(--color-secondary);
     border-radius: 3px;
   }
-  
+
   &::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
   }
@@ -449,16 +450,16 @@
 .modal-post {
   padding: var(--spacing-lg);
   border-bottom: 1px solid var(--color-secondary);
-  
+
   .post-header {
     padding: 0;
     border-bottom: none;
   }
-  
+
   .post-content {
     padding: var(--spacing-md) 0;
   }
-  
+
   .post-stats {
     padding: var(--spacing-sm) 0 0;
     border-top: 1px solid var(--color-secondary);
@@ -467,7 +468,7 @@
 
 .comments-section {
   padding: var(--spacing-lg);
-  
+
   h4 {
     margin: 0 0 var(--spacing-md) 0;
     color: var(--color-primary);
@@ -543,25 +544,24 @@
   .modal-overlay {
     padding: var(--spacing-sm);
   }
-  
+
   .modal-content {
     max-height: 90vh;
   }
-  
+
   .modal-header {
     padding: var(--spacing-md);
   }
-  
+
   .modal-post {
     padding: var(--spacing-md);
   }
-  
+
   .comments-section {
     padding: var(--spacing-md);
   }
-  
+
   .comment-item {
     padding: var(--spacing-sm);
   }
 }
-

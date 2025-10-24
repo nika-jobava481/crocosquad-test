@@ -19,6 +19,12 @@ export class WheelComponent {
     if (['e', 'E', '+', '-'].includes(event.key)) {
       event.preventDefault();
     }
+
+    // Trigger spinWheel when Enter is pressed
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.spinWheel();
+    }
   }
 
   spinWheel() {
@@ -27,11 +33,11 @@ export class WheelComponent {
       this.errorMessage = 'Sector not found.';
       return;
     }
-    
+
     // Clear error message if valid
     this.errorMessage = '';
-    
-    let randomTurns = Math.floor(Math.random() * 3) + 3;
+
+    let randomTurns = Math.floor(Math.random() * 2) + 3;
     this.currentAngle -= 360 * randomTurns + (36 * (this.sector - this.lastSector));
     this.lastSector = this.sector;
   }

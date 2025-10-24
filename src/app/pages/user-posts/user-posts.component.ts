@@ -29,7 +29,7 @@ export class UserPostsComponent implements OnInit {
     const commentCount = comments.length;
     const minLikes = Math.max(1, commentCount - 2);
     const maxLikes = commentCount * 6;
-    
+
     return {
       ...post,
       userName: user ? user.name : 'Unknown User',
@@ -73,13 +73,13 @@ export class UserPostsComponent implements OnInit {
     this.route.queryParams.pipe(
       switchMap((params: any) => {
         this.userId = params['userId'];
-        
+
         // Check if userId exists and is valid, if not redirect to users page
         if (!this.userId || this.userId <= 0) {
           this.router.navigate(['/users']);
           return [];
         }
-        
+
         // Second request: get posts after queryParams completes
         return this.postsService.getPosts({ userId: this.userId });
       }),
@@ -98,24 +98,22 @@ export class UserPostsComponent implements OnInit {
       }),
       switchMap(({ posts, user }) => {
         // Fourth request: get comments for each post
-        const commentRequests = posts.map((post: any) => 
+        const commentRequests = posts.map((post: any) =>
           this.postsService.getCommentsByPostId(post.id).pipe(
             map((comments: any) => ({ post, comments }))
           )
         );
-        
+
         return forkJoin(commentRequests).pipe(
           map((postComments) => ({ posts, user, postComments }))
         );
       })
-    ).subscribe(({ posts, user, postComments }:any) => {
+    ).subscribe(({ posts, user, postComments }: any) => {
       this.user = user;
       this.posts = posts.map((post: any) => {
         const postWithComments = postComments.find((pc: any) => pc.post.id === post.id);
         return this.generateRandomData(post, user, postWithComments?.comments || []);
       });
-      console.log('Posts with comments:', this.posts);
-      console.log('User info:', user);
     });
   }
 

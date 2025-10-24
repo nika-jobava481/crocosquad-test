@@ -6,11 +6,11 @@ import { BaseService } from '../base.service';
 })
 export class PostsService extends BaseService {
 
-  constructor() { 
+  constructor() {
     super();
   }
 
-  getPosts(params?: {userId: number}) {
+  getPosts(params?: { userId: number }) {
     return this.get(`posts`, params);
   }
 

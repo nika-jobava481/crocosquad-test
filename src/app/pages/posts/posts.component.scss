@@ -34,7 +34,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: "Inter", sans-serif;
-  
+
   th {
     background: rgba(161, 129, 255, 0.1);
     color: var(--color-primary);
@@ -45,7 +45,7 @@
     border-bottom: 2px solid var(--color-primary);
     letter-spacing: 0.05em;
   }
-  
+
   td {
     padding: var(--spacing-md) var(--spacing-sm);
     border-bottom: 1px solid rgba(161, 129, 255, 0.1);
@@ -53,14 +53,14 @@
     font-size: var(--font-size-sm);
     transition: all 0.2s ease;
   }
-  
+
   .post-row {
     transition: all 0.2s ease;
-    
+
     &:hover {
       background: rgba(161, 129, 255, 0.05);
     }
-    
+
     &:last-child td {
       border-bottom: none;
     }
@@ -98,17 +98,17 @@
   padding: var(--spacing-sm) var(--spacing-md);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px rgba(161, 129, 255, 0.3);
-  
+
   i {
     font-size: var(--font-size-sm);
   }
-  
+
   &:hover {
     background: linear-gradient(135deg, #8b5cf6, var(--color-primary));
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 4px 16px rgba(161, 129, 255, 0.4);
   }
-  
+
   &:active {
     transform: translateY(0) scale(1.02);
     box-shadow: 0 2px 8px rgba(161, 129, 255, 0.3);
@@ -120,15 +120,15 @@
   .posts-container {
     padding: var(--spacing-md);
   }
-  
+
   .page-title {
     font-size: var(--font-size-xl);
   }
-  
+
   .table-container {
     display: none; // Hide table on mobile
   }
-  
+
   // Mobile list layout - optimized for horizontal space
   .mobile-posts-list {
     display: flex;
@@ -137,7 +137,7 @@
     padding: 0;
     background: transparent;
   }
-  
+
   .mobile-post-card {
     background: transparent;
     padding: var(--spacing-md) 0;
@@ -146,20 +146,20 @@
     align-items: center;
     justify-content: space-between;
     min-height: 50px;
-    
+
     &:last-child {
       border-bottom: none;
     }
-    
+
     &:hover {
       background: rgba(161, 129, 255, 0.05);
     }
-    
+
     .post-info {
       flex: 1;
       min-width: 0;
       padding-right: var(--spacing-sm);
-      
+
       .post-username {
         color: var(--color-primary);
         font-size: var(--font-size-sm);
@@ -170,7 +170,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      
+
       .post-title {
         color: var(--color-text);
         font-size: var(--font-size-md);
@@ -181,11 +181,11 @@
         text-overflow: ellipsis;
       }
     }
-    
+
     .post-actions {
       flex-shrink: 0;
       width: 40px;
-      
+
       .details-btn-mobile {
         padding: var(--spacing-xs);
         border-radius: var(--border-radius-sm);
@@ -198,12 +198,12 @@
         color: var(--color-primary);
         font-size: var(--font-size-md);
         width: 100%;
-        
+
         &:hover {
           background: rgba(161, 129, 255, 0.1);
           transform: scale(1.1);
         }
-        
+
         &:active {
           transform: scale(1.05);
         }
@@ -356,7 +356,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   h3 {
     color: var(--color-primary);
     font-size: var(--font-size-lg);
@@ -374,7 +374,7 @@
   padding: var(--spacing-xs);
   border-radius: var(--border-radius-sm);
   transition: all 0.2s ease;
-  
+
   &:hover {
     color: var(--color-primary);
     background: rgba(161, 129, 255, 0.1);
@@ -385,17 +385,17 @@
   padding: var(--spacing-lg);
   max-height: 60vh;
   overflow-y: auto;
-  
+
   // Custom scrollbar
   &::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: rgba(161, 129, 255, 0.1);
     border-radius: 3px;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: var(--color-primary);
     border-radius: 3px;
@@ -410,7 +410,7 @@
       font-weight: 600;
       margin: 0 0 var(--spacing-md) 0;
     }
-    
+
     p {
       color: var(--color-text);
       font-size: var(--font-size-md);
@@ -425,28 +425,28 @@
   .modal-overlay {
     padding: var(--spacing-sm);
   }
-  
+
   .modal-content {
     max-height: 90vh;
   }
-  
+
   .modal-header {
     padding: var(--spacing-md);
-    
+
     h3 {
       font-size: var(--font-size-md);
     }
   }
-  
+
   .modal-body {
     padding: var(--spacing-md);
     max-height: 70vh;
   }
-  
+
   .modal-post .post-content h3 {
     font-size: var(--font-size-md);
   }
-  
+
   .modal-post .post-content p {
     font-size: var(--font-size-sm);
   }

@@ -17,7 +17,7 @@ interface LeaderboardEntry {
   styleUrl: './leaderboard.component.scss'
 })
 export class LeaderboardComponent implements OnInit {
-  
+
   // Leaderboard properties
   weekTypes: WeekType[] = ['I', 'II', 'III', 'IV'];
   activeFilter: WeekType | 'ALL' = 'ALL';
@@ -68,16 +68,16 @@ export class LeaderboardComponent implements OnInit {
     const adjectives = ['Cool', 'Fast', 'Smart', 'Bright', 'Quick', 'Sharp', 'Bold', 'Wild'];
     const nouns = ['Player', 'Gamer', 'Hero', 'Champ', 'Star', 'King', 'Queen', 'Master'];
     const numbers = Math.floor(Math.random() * 999) + 1;
-    
+
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
     const noun = nouns[Math.floor(Math.random() * nouns.length)];
-    
+
     return `${adjective}${noun}${numbers}`;
   }
 
   filterByWeek(week: WeekType | 'ALL'): void {
     this.activeFilter = week;
-    
+
     if (week === 'ALL') {
       this.filteredLeaderboard = this.leaderboard;
     } else {

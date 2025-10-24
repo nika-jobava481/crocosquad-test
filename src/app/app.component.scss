@@ -22,6 +22,7 @@
   // When sidebar is collapsed
   .sidebar-collapsed & {
     margin-left: 70px; // Collapsed sidenav width
+
     @media (max-width: 1024px) {
       margin-left: 0;
     }

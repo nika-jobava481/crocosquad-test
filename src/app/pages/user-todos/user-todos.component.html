@@ -2,39 +2,41 @@
     <div class="todos-header">
         <h1 class="page-title">Todos</h1>
         @if (user) {
-            <p class="page-subtitle">Todos for {{ user.name }}</p>
+        <p class="page-subtitle">Todos for {{ user.name }}</p>
         }
     </div>
 
     @if (isLoading) {
-        <app-loader />
+    <app-loader />
     } @else if (error) {
-        <div class="error-state">
-            <i class="icon-warning"></i>
-            <h3>Error Loading Todos</h3>
-            <p>{{ error }}</p>
-            <button class="retry-btn" (click)="retry()">
-                <i class="icon-refresh"></i>
-                Try Again
-            </button>
-        </div>
+    <div class="error-state">
+        <i class="icon-warning"></i>
+        <h3>Error Loading Todos</h3>
+        <p>{{ error }}</p>
+        <button class="retry-btn" (click)="retry()">
+            <i class="icon-refresh"></i>
+            Try Again
+        </button>
+    </div>
     } @else if (todos.length === 0) {
-        <div class="no-todos">
-            <i class="icon-list1"></i>
-            <h3>No todos found</h3>
-            <p>This user doesn't have any todos yet.</p>
-        </div>
+    <div class="no-todos">
+        <i class="icon-list1"></i>
+        <h3>No todos found</h3>
+        <p>This user doesn't have any todos yet.</p>
+    </div>
     } @else {
-        <div class="todos-list">
-            <div *ngFor="let todo of todos" class="todo-item" [class.completed]="todo.completed">
-                <div class="todo-status">
-                    <i [class]="todo.completed ? 'icon-checkmark' : 'icon-circle'"></i>
-                </div>
-                <div class="todo-content">
-                    <h3 class="todo-title">{{ todo.title }}</h3>
-                    <p class="todo-meta">ID: {{ todo.id }}</p>
-                </div>
+    <div class="todos-list">
+        @for (todo of todos; track todo.id) {
+        <div class="todo-item" [class.completed]="todo.completed">
+            <div class="todo-status">
+                <i [class]="todo.completed ? 'icon-checkmark' : 'icon-circle'"></i>
+            </div>
+            <div class="todo-content">
+                <h3 class="todo-title">{{ todo.title }}</h3>
+                <p class="todo-meta">ID: {{ todo.id }}</p>
             </div>
         </div>
+        }
+    </div>
     }
 </div>

@@ -4,13 +4,13 @@ import { BaseService } from '../base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TodosService extends BaseService{
+export class TodosService extends BaseService {
 
-  constructor() { 
+  constructor() {
     super();
   }
 
-  getTodos(userId: number) {
-    return this.get(`todos?userId=${userId}`);
+  getTodos(params?: { userId: number }) {
+    return this.get('todos', params);
   }
 }

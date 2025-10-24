@@ -5,131 +5,131 @@
 
     <!-- User Not Found State -->
     @if (userNotFound) {
-        <div class="user-not-found">
-            <div class="not-found-content">
-                <i class="icon-user-x"></i>
-                <h2>User Not Found</h2>
-                <p>The user you're looking for doesn't exist or has been removed.</p>
-                <button class="go-back-btn" (click)="goBack()">
-                    Go Back to Users
-                </button>
-            </div>
+    <div class="user-not-found">
+        <div class="not-found-content">
+            <i class="icon-user-x"></i>
+            <h2>User Not Found</h2>
+            <p>The user you're looking for doesn't exist or has been removed.</p>
+            <button class="go-back-btn" (click)="goBack()">
+                Go Back to Users
+            </button>
         </div>
+    </div>
     }
 
     <!-- Loading State -->
     @if (!userNotFound && posts.length === 0) {
-        <app-loader />
+    <app-loader />
     }
 
     <!-- Posts Grid -->
     @if (!userNotFound && posts.length > 0) {
-        <div class="posts-grid">
-            @for (post of posts; track post.id) {
-                <div class="post-card">
-                    <div class="post-header">
-                        <div class="user-info">
-                            <div class="avatar"></div>
-                            <div class="user-details">
-                                <h4 class="user-name">{{ post.userName || 'Unknown User' }}</h4>
-                                <span class="post-time">{{ post.randomTime }}</span>
-                            </div>
-                        </div>
-                        <div class="post-actions">
-                            <i class="icon-dots-vertical"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p>{{ post.body }}</p>
-                    </div>
-                    
-                    <div class="post-stats">
-                        <div class="likes-count">
-                            <i class="icon-thumbs-up"></i>
-                            <span>{{ post.randomLikes }}</span>
-                        </div>
-                        <div class="comments-count">
-                            <span>{{ post.comments.length }} comments</span>
-                        </div>
-                    </div>
-                    
-                    <div class="post-actions-bar">
-                        <button class="action-btn like-btn" [class.liked]="post.isLiked" (click)="toggleLike(post)">
-                            <i class="icon-thumbs-up"></i>
-                            <span>{{ post.isLiked ? 'Liked' : 'Like' }}</span>
-                        </button>
-                        <button class="action-btn comment-btn" (click)="openCommentModal(post)">
-                            <i class="icon-message-circle"></i>
-                            <span>Comment</span>
-                        </button>
+    <div class="posts-grid">
+        @for (post of posts; track post.id) {
+        <div class="post-card">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="avatar"></div>
+                    <div class="user-details">
+                        <h4 class="user-name">{{ post.userName || 'Unknown User' }}</h4>
+                        <span class="post-time">{{ post.randomTime }}</span>
                     </div>
                 </div>
-            }
+                <div class="post-actions">
+                    <i class="icon-dots-vertical"></i>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <p>{{ post.body }}</p>
+            </div>
+
+            <div class="post-stats">
+                <div class="likes-count">
+                    <i class="icon-thumbs-up"></i>
+                    <span>{{ post.randomLikes }}</span>
+                </div>
+                <div class="comments-count">
+                    <span>{{ post.comments.length }} comments</span>
+                </div>
+            </div>
+
+            <div class="post-actions-bar">
+                <button class="action-btn like-btn" [class.liked]="post.isLiked" (click)="toggleLike(post)">
+                    <i class="icon-thumbs-up"></i>
+                    <span>{{ post.isLiked ? 'Liked' : 'Like' }}</span>
+                </button>
+                <button class="action-btn comment-btn" (click)="openCommentModal(post)">
+                    <i class="icon-message-circle"></i>
+                    <span>Comment</span>
+                </button>
+            </div>
         </div>
+        }
+    </div>
     }
 </div>
 
 <!-- Comment Modal -->
 @if (isModalOpen && selectedPost) {
-    <div class="modal-overlay" (click)="closeCommentModal()">
-        <div class="modal-content" (click)="$event.stopPropagation()">
-            <div class="modal-header">
-                <h3>Comments</h3>
-                <button class="close-btn" (click)="closeCommentModal()">
-                    <i class="icon-cross"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <!-- Post Content -->
-                <div class="modal-post">
-                    <div class="post-header">
-                        <div class="user-info">
-                            <div class="avatar"></div>
-                            <div class="user-details">
-                                <h4 class="user-name">{{ selectedPost.userName }}</h4>
-                                <span class="post-time">{{ selectedPost.randomTime }}</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p>{{ selectedPost.body }}</p>
-                    </div>
-                    
-                    <div class="post-stats">
-                        <div class="likes-count">
-                            <i class="icon-thumbs-up"></i>
-                            <span>{{ selectedPost.randomLikes }}</span>
-                        </div>
-                        <div class="comments-count">
-                            <span>{{ selectedPost.comments.length }} comments</span>
+<div class="modal-overlay" (click)="closeCommentModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <h3>Comments</h3>
+            <button class="close-btn" (click)="closeCommentModal()">
+                <i class="icon-cross"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <!-- Post Content -->
+            <div class="modal-post">
+                <div class="post-header">
+                    <div class="user-info">
+                        <div class="avatar"></div>
+                        <div class="user-details">
+                            <h4 class="user-name">{{ selectedPost.userName }}</h4>
+                            <span class="post-time">{{ selectedPost.randomTime }}</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Comments List -->
-                <div class="comments-section">
-                    <h4>Comments</h4>
-                    <div class="comments-list">
-                        @for (comment of selectedPost.comments; track comment.id) {
-                            <div class="comment-item">
-                                <div class="comment-header">
-                                    <div class="comment-avatar"></div>
-                                    <div class="comment-info">
-                                        <span class="comment-name">{{ comment.name }}</span>
-                                        <span class="comment-email">{{ comment.email }}</span>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>{{ comment.body }}</p>
-                                </div>
-                            </div>
-                        }
+
+                <div class="post-content">
+                    <p>{{ selectedPost.body }}</p>
+                </div>
+
+                <div class="post-stats">
+                    <div class="likes-count">
+                        <i class="icon-thumbs-up"></i>
+                        <span>{{ selectedPost.randomLikes }}</span>
                     </div>
+                    <div class="comments-count">
+                        <span>{{ selectedPost.comments.length }} comments</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments List -->
+            <div class="comments-section">
+                <h4>Comments</h4>
+                <div class="comments-list">
+                    @for (comment of selectedPost.comments; track comment.id) {
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <div class="comment-avatar"></div>
+                            <div class="comment-info">
+                                <span class="comment-name">{{ comment.name }}</span>
+                                <span class="comment-email">{{ comment.email }}</span>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            <p>{{ comment.body }}</p>
+                        </div>
+                    </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
+</div>
 }

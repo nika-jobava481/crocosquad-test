@@ -11,7 +11,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 export class HeaderComponent implements OnInit, OnDestroy {
   currentDateTime = new Date();
   private timeInterval: any;
-  
+
   @Output() sidebarToggle = new EventEmitter<void>();
 
   ngOnInit() {

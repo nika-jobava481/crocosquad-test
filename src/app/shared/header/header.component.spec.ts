@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
 
@@ -8,9 +9,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      imports: [HeaderComponent],
+      providers: [provideRouter([])]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
@@ -19,5 +21,28 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit sidebarToggle event when toggleSidebar is called', () => {
+    spyOn(component.sidebarToggle, 'emit');
+
+    component.toggleSidebar();
+
+    expect(component.sidebarToggle.emit).toHaveBeenCalled();
+  });
+
+  it('should update currentDateTime on init', () => {
+    component.ngOnInit();
+
+    expect(component.currentDateTime).toBeInstanceOf(Date);
+  });
+
+  it('should clear interval on destroy', () => {
+    component.ngOnInit();
+    spyOn(globalThis, 'clearInterval');
+
+    component.ngOnDestroy();
+
+    expect(globalThis.clearInterval).toHaveBeenCalled();
   });
 });

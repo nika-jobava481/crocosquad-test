@@ -29,24 +29,24 @@ export class UserTodosComponent implements OnInit {
       switchMap((params: any) => {
         this.userId = params['userId'];
         this.error = null; // Clear previous errors
-        
+
         // Check if userId is invalid and redirect
         if (!this.userId || this.userId <= 0) {
           this.router.navigate(['/users']);
           return [];
         }
-        
+
         return forkJoin({
-          todos: this.todosService.getTodos(this.userId),
+          todos: this.todosService.getTodos({ userId: this.userId }),
           users: this.usersService.getUsers({ id: this.userId })
         });
       }),
-      map(({ todos, users }:any) => ({
+      map(({ todos, users }: any) => ({
         todos,
         user: users[0]
       }))
     ).subscribe({
-      next: ({ todos, user }:any) => {
+      next: ({ todos, user }: any) => {
         // Only update if we have valid data (not redirected)
         if (todos && user) {
           this.todos = todos;

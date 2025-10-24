@@ -11,7 +11,7 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'croco-test-ng';
+  title = 'crocosquad';
   isSidebarCollapsed = false;
   isMobileMenuOpen = false;
   isMobileMenuClosing = false;
@@ -29,7 +29,7 @@ export class AppComponent {
     if (this.isMobileMenuOpen) {
       this.isMobileMenuClosing = true;
       this.isMobileMenuOpen = false;
-      
+
       // Reset closing state after animation completes
       setTimeout(() => {
         this.isMobileMenuClosing = false;

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "croco-test-ng": {
+    "crocosquad": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/croco-test-ng",
+            "outputPath": "dist/crocosquad",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "croco-test-ng:build:production"
+              "buildTarget": "crocosquad:build:production"
             },
             "development": {
-              "buildTarget": "croco-test-ng:build:development"
+              "buildTarget": "crocosquad:build:development"
             }
           },
           "defaultConfiguration": "development"

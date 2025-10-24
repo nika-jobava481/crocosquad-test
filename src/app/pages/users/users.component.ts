@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { UsersService } from '../../core/services/users/users.service';
 import { RouterLink } from "@angular/router";
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { User } from '../../core/models/user.interface';
 
 @Component({
   selector: 'app-users',
@@ -15,19 +16,17 @@ export class UsersComponent implements OnInit {
 
   private readonly usersService = inject(UsersService);
 
-  users: any[] = [];
-  filteredUsers: any[] = [];
+  users: User[] = [];
+  filteredUsers: User[] = [];
   searchTerm: string = '';
   error: string | null = null;
 
   ngOnInit() {
     this.usersService.getUsers().subscribe({
-      next: (res: any) => {
+      next: (res) => {
         this.users = res;
         this.filteredUsers = res; // Initialize filtered users
         this.error = null;
-        console.table(this.users);
-        console.log(this.users[0]);
       },
       error: (error) => {
         console.error('Error loading users:', error);
@@ -62,7 +61,7 @@ export class UsersComponent implements OnInit {
     }
 
     const searchLower = this.searchTerm.toLowerCase().trim();
-    this.filteredUsers = this.users.filter(user => 
+    this.filteredUsers = this.users.filter(user =>
       user.name.toLowerCase().includes(searchLower) ||
       user.email.toLowerCase().includes(searchLower)
     );

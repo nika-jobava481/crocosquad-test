@@ -22,7 +22,7 @@ export class PostsComponent implements OnInit {
   paginatedPosts: any[] = [];
   selectedPost: any = null;
   isModalOpen: boolean = false;
-  
+
   // Pagination properties
   currentPage: number = 1;
   itemsPerPage: number = 10;
@@ -53,7 +53,7 @@ export class PostsComponent implements OnInit {
       this.postsService.getPosts(),
       this.usersService.getUsers()
     ]).pipe(
-      map(([posts, users]: [any, any]) => 
+      map(([posts, users]: [any, any]) =>
         posts.map((post: any) => {
           const user = users.find((user: any) => user.id === post.userId);
           return {
@@ -68,14 +68,13 @@ export class PostsComponent implements OnInit {
       this.posts = mergedPosts;
       this.filteredPosts = mergedPosts;
       this.updatePagination();
-      console.log('Merged posts with user data:', this.posts);
     });
   }
 
   updatePagination() {
     this.totalItems = this.filteredPosts.length;
     this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
-    
+
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     this.paginatedPosts = this.filteredPosts.slice(startIndex, endIndex);
@@ -105,11 +104,11 @@ export class PostsComponent implements OnInit {
     const maxVisiblePages = window.innerWidth <= 768 ? 3 : 5; // Fewer pages on mobile
     let startPage = Math.max(1, this.currentPage - Math.floor(maxVisiblePages / 2));
     let endPage = Math.min(this.totalPages, startPage + maxVisiblePages - 1);
-    
+
     if (endPage - startPage + 1 < maxVisiblePages) {
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
-    
+
     for (let i = startPage; i <= endPage; i++) {
       pages.push(i);
     }

@@ -49,6 +49,9 @@ body {
     margin: 0;
     padding: 0;
     outline: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) rgba(161, 129, 255, 0.1);
+
 }
 
 // Link Styles
@@ -76,14 +79,8 @@ a {
 ::-webkit-scrollbar-thumb {
     background: var(--color-primary);
     border-radius: var(--border-radius-sm);
-    
+
     &:hover {
         background: rgba(161, 129, 255, 0.8);
     }
-}
-
-// Firefox scrollbar styling
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) rgba(161, 129, 255, 0.1);
 }

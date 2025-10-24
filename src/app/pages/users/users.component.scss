@@ -216,7 +216,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: "Inter", sans-serif;
-  
+
   th {
     background: rgba(161, 129, 255, 0.1);
     color: var(--color-primary);
@@ -227,7 +227,7 @@
     border-bottom: 2px solid var(--color-primary);
     letter-spacing: 0.05em;
   }
-  
+
   td {
     padding: var(--spacing-md) var(--spacing-sm);
     border-bottom: 1px solid rgba(161, 129, 255, 0.1);
@@ -235,14 +235,14 @@
     font-size: var(--font-size-sm);
     transition: all 0.2s ease;
   }
-  
+
   .user-row {
     transition: all 0.2s ease;
-    
+
     &:hover {
       background: rgba(161, 129, 255, 0.05);
     }
-    
+
     &:last-child td {
       border-bottom: none;
     }
@@ -282,17 +282,17 @@
   padding: var(--spacing-xs);
   border-radius: var(--border-radius-sm);
   margin-right: var(--spacing-sm);
-  
+
   &:last-child {
     margin-right: 0;
   }
-  
+
   &:hover {
     color: var(--color-primary);
     background: rgba(161, 129, 255, 0.1);
     transform: scale(1.2) rotate(5deg);
   }
-  
+
   &:active {
     transform: scale(1.1) rotate(2deg);
   }
@@ -304,53 +304,53 @@
     padding: var(--spacing-md);
     max-width: 100%;
   }
-  
+
   .users-header {
     margin-bottom: var(--spacing-lg);
     text-align: center;
   }
-  
+
   .page-title {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-sm);
   }
-  
+
   .page-subtitle {
     font-size: var(--font-size-sm);
     opacity: 0.8;
     margin-bottom: var(--spacing-md);
   }
-  
+
   // Mobile Search Bar
   .search-container {
     margin-bottom: var(--spacing-md);
   }
-  
+
   .search-input-wrapper {
     max-width: 100%;
     padding: var(--spacing-sm);
   }
-  
+
   .search-input {
     font-size: var(--font-size-sm);
   }
-  
+
   .no-results {
     padding: var(--spacing-lg) var(--spacing-md);
-    
+
     i {
       font-size: 2rem;
     }
-    
+
     h3 {
       font-size: var(--font-size-md);
     }
-    
+
     p {
       font-size: var(--font-size-sm);
     }
   }
-  
+
   .table-container {
     padding: 0;
     background: transparent;
@@ -358,11 +358,11 @@
     backdrop-filter: none;
     overflow-x: visible;
   }
-  
+
   .users-table {
     display: none; // Hide table on mobile
   }
-  
+
   // Mobile list layout - Clean without avatars
   .mobile-users-list {
     display: flex;
@@ -371,7 +371,7 @@
     padding: 0;
     background: transparent;
   }
-  
+
   .mobile-user-card {
     background: transparent;
     padding: var(--spacing-md) 0;
@@ -380,26 +380,26 @@
     align-items: center;
     justify-content: space-between;
     min-height: 60px;
-    
+
     &:last-child {
       border-bottom: none;
     }
-    
+
     &:hover {
       background: rgba(161, 129, 255, 0.05);
     }
-    
+
     .user-info {
       flex: 1;
       min-width: 0;
       padding-right: var(--spacing-md);
-      
+
       .user-name-row {
         display: flex;
         align-items: center;
         gap: var(--spacing-sm);
         margin-bottom: var(--spacing-xs);
-        
+
         .user-name {
           font-weight: 600;
           color: var(--color-text);
@@ -410,7 +410,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        
+
         .user-username {
           color: var(--color-primary);
           font-size: var(--font-size-sm);
@@ -418,7 +418,7 @@
           white-space: nowrap;
         }
       }
-      
+
       .user-details {
         .user-phone {
           font-family: "Orbitron", sans-serif;
@@ -428,7 +428,7 @@
           margin-bottom: var(--spacing-xs);
           white-space: nowrap;
         }
-        
+
         .user-company {
           font-size: var(--font-size-sm);
           color: var(--color-secondary);
@@ -439,12 +439,12 @@
         }
       }
     }
-    
+
     .user-actions {
       display: flex;
       gap: var(--spacing-sm);
       flex-shrink: 0;
-      
+
       .action-button {
         padding: var(--spacing-xs);
         border-radius: var(--border-radius-sm);
@@ -457,12 +457,12 @@
         color: var(--color-primary);
         font-size: var(--font-size-md);
         text-decoration: none;
-        
+
         &:hover {
           background: rgba(161, 129, 255, 0.1);
           transform: scale(1.1);
         }
-        
+
         &:active {
           transform: scale(1.05);
         }

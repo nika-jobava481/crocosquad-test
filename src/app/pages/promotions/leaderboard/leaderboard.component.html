@@ -3,10 +3,11 @@
         <h2 class="section-title">Weekly Leaderboard</h2>
 
         <div class="filter-buttons">
-            <button *ngFor="let week of weekTypes" class="filter-btn" [class.active]="activeFilter === week"
-                (click)="filterByWeek(week)">
+            @for (week of weekTypes; track week) {
+            <button class="filter-btn" [class.active]="activeFilter === week" (click)="filterByWeek(week)">
                 {{ week }}
             </button>
+            }
             <button class="filter-btn" [class.active]="activeFilter === 'ALL'" (click)="filterByWeek('ALL')">
                 ALL
             </button>
@@ -22,7 +23,8 @@
         </div>
 
         <div class="table-body">
-            <div *ngFor="let entry of filteredLeaderboard" class="table-row">
+            @for (entry of filteredLeaderboard; track entry.customerId) {
+            <div class="table-row">
                 <div class="col-place">
                     <span class="place-badge" [class.first-place]="entry.place === 1"
                         [class.second-place]="entry.place === 2" [class.third-place]="entry.place === 3">
@@ -35,6 +37,7 @@
                     <span class="week-badge">{{ entry.week }}</span>
                 </div>
             </div>
+            }
         </div>
     </div>
 </div>
